@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Welcome, {{ current_user.username }}!</h2>
+<a class="btn btn-success mb-3" href="{{ url_for('add_food') }}">➕ Add Food Entry</a>
+
+{% if foods %}
+<h4>Today's Entries:</h4>
+<div class="table-responsive">
+<table class="table table-striped table-bordered align-middle">
+    <thead class="table-dark text-center">
+        <tr>
+            <th>Food</th>
+            <th>Ingredients</th>
+            <th>Calories</th>
+            <th>Protein (g)</th>
+            <th>Carbs (g)</th>
+            <th>Fats (g)</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody class="text-center">
+        {% for food in foods %}
+        <tr>
+            <td>{{ food.food_name }}</td>
+            <td>{{ food.ingredients }}</td>
+            <td>{{ "%.2f"|format(food.calories) }}</td>
+            <td>{{ "%.2f"|format(food.protein) }}</td>
+            <td>{{ "%.2f"|format(food.carbs) }}</td>
+            <td>{{ "%.2f"|format(food.fats) }}</td>
+            <td>
+                <form method="POST" action="{{ url_for('delete_food', food_id=food.id) }}" style="margin: 0; display: inline;">
+                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this entry?')">
+                        Delete
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+<h4 class="mt-4">🔢 Total Nutrition</h4>
+<ul class="list-group">
+    <li class="list-group-item">Calories: {{ "%.2f"|format(total.calories) }}</li>
+    <li class="list-group-item">Protein: {{ "%.2f"|format(total.protein) }} g</li>
+    <li class="list-group-item">Carbs: {{ "%.2f"|format(total.carbs) }} g</li>
+    <li class="list-group-item">Fats: {{ "%.2f"|format(total.fats) }} g</li>
+</ul>
+{% else %}
+<p>No entries yet today.</p>
+{% endif %}
+{% endblock %}
+

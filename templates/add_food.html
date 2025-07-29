@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add Food Entry</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">{{ form.food_name.label }} {{ form.food_name(class="form-control") }}</div>
+    <div class="mb-3">{{ form.ingredients.label }} {{ form.ingredients(class="form-control") }}</div>
+    <div class="mb-3">{{ form.calories.label }} {{ form.calories(class="form-control") }}</div>
+    <div class="mb-3">{{ form.protein.label }} {{ form.protein(class="form-control") }}</div>
+    <div class="mb-3">{{ form.carbs.label }} {{ form.carbs(class="form-control") }}</div>
+    <div class="mb-3">{{ form.fats.label }} {{ form.fats(class="form-control") }}</div>
+    <div>{{ form.submit(class="btn btn-primary") }}</div>
+</form>
+{% endblock %}

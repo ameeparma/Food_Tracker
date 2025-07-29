@@ -1,0 +1,48 @@
+body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.table {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 8px 16px;
+}
+
+.alert {
+    margin-top: 20px;
+}
+
+.list-group-item {
+    font-weight: 500;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
